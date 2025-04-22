@@ -21,7 +21,7 @@ export default function AdminPayments() {
   const [searchQuery, setSearchQuery] = useState('')
   const [formData, setFormData] = useState({
     amount: '',
-    status: 'Pending' as const,
+    status: 'Pending' as 'Pending' | 'Completed' | 'Failed', // Fixed here
     method: '',
     date: '',
     saleId: ''
