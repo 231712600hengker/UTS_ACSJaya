@@ -112,7 +112,7 @@ export default function Contact() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="bg-custom-sub-base/50 rounded-2xl overflow-hidden shadow-lg border border-custom-title/20">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2834256722337!2d106.82707107575666!3d-6.226305661705123!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3f3a3b08b67%3A0x91e92c99f032a79!2sJl.%20Gatot%20Subroto%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sen!2sid!4v1709900000000!5m2!1sen!2sid"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.963776413571!2d110.40841771425847!3d-7.778201379332665!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5984f78c8a25%3A0x7f18a4e8b45d68f4!2sJl.%20Babarsari%2C%20Caturtunggal%2C%20Kec.%20Depok%2C%20Kabupaten%20Sleman%2C%20Daerah%20Istimewa%20Yogyakarta!5e0!3m2!1sen!2sid!4v1680000000000!5m2!1sen!2sid"
               width="100%"
               height="400"
               style={{ border: 0 }}

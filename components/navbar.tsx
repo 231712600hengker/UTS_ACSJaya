@@ -35,13 +35,12 @@ const Navbar = () => {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
-                src="/public/logo.svg"
+                src="/images/logo.svg"
                 alt="NexGen Electronics Logo"
-                width={40}
-                height={40}
+                width={80}
+                height={80}
                 className="rounded-full"
               />
-              <span className="ml-2 text-xl font-bold text-custom-title">NexGen Electronics</span>
             </Link>
           </div>
 

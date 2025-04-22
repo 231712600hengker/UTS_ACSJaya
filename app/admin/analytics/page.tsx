@@ -17,13 +17,15 @@ const salesData = [
 ]
 
 const categoryData = [
-  { name: 'Laptops', value: 400 },
-  { name: 'Smartphones', value: 300 },
-  { name: 'Accessories', value: 300 },
-  { name: 'Tablets', value: 200 },
+  { name: 'Augmented Reality', value: 400 },
+  { name: 'AI Gadgets', value: 300 },
+  { name: 'Smart Wearables', value: 300 },
+  { name: 'Smart Home', value: 200 },
+  { name: 'Gaming & Haptic', value: 200 },
+  { name: 'Virtual Reality', value: 250 }, 
 ]
 
-const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042']
+const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#A28EFF', '#FF6699']
 
 export default function AdminAnalytics() {
   const { isAuthenticated, userRole } = useAdminStore()
