@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { useAdminStore, type Sale } from '@/lib/store'
 import AdminLayout from '@/components/admin-layout'
@@ -11,7 +11,6 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from 
 import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Plus, Pencil, Trash, Search } from 'lucide-react'
-import { useEffect } from 'react'
 
 export default function AdminSales() {
   const { isAuthenticated, userRole, sales, addSale, updateSale, deleteSale } = useAdminStore()
@@ -24,7 +23,7 @@ export default function AdminSales() {
     product: '',
     amount: '',
     date: '',
-    status: 'Pending' as const
+    status: 'Pending' as 'Pending' | 'Completed' | 'Cancelled'
   })
 
   useEffect(() => {
@@ -46,19 +45,20 @@ export default function AdminSales() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     const saleData = {
+      id: editingSale ? editingSale.id : Date.now(), // Auto-generate id or use existing for editing
       customer: formData.customer,
       product: formData.product,
       amount: Number(formData.amount),
       date: formData.date,
       status: formData.status
     }
-
+  
     if (editingSale) {
       updateSale({ ...saleData, id: editingSale.id })
     } else {
       addSale(saleData)
     }
-
+  
     setFormData({
       customer: '',
       product: '',
@@ -69,6 +69,7 @@ export default function AdminSales() {
     setEditingSale(null)
     setIsDialogOpen(false)
   }
+  
 
   const handleEdit = (sale: Sale) => {
     setEditingSale(sale)
@@ -136,7 +137,7 @@ export default function AdminSales() {
                   />
                   <Select
                     value={formData.status}
-                    onValueChange={(value: 'Pending' | 'Completed' | 'Cancelled') => 
+                    onValueChange={(value: 'Pending' | 'Completed' | 'Cancelled') =>
                       setFormData({ ...formData, status: value })
                     }
                   >
