@@ -1,0 +1,58 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Product {
+  id            String   @id @default(uuid())
+  name          String
+  description   String
+  price         Int
+  category      String
+  image         String
+  stock         Int
+  rating        Float?
+  brand         String?
+  isNewArrival  Boolean? @default(false)
+  isTopSelling  Boolean? @default(false)
+
+  sales         Sale[]   @relation("ProductSales")
+}
+
+model Sale {
+  id        String   @id @default(uuid())
+  customer  String
+  product   Product  @relation("ProductSales", fields: [productId], references: [id])
+  productId String
+  amount    Int
+  date      DateTime
+  status    SaleStatus
+
+  payments  Payment[]
+}
+
+model Payment {
+  id        String   @id @default(uuid())
+  amount    Int
+  status    PaymentStatus
+  method    String
+  date      DateTime
+  sale      Sale     @relation(fields: [saleId], references: [id])
+  saleId    String
+}
+
+enum SaleStatus {
+  Pending
+  Completed
+  Cancelled
+}
+
+enum PaymentStatus {
+  Pending
+  Completed
+  Failed
+}
